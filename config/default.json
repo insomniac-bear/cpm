@@ -1,0 +1,6 @@
+{
+  "port": 5000,
+  "jwtSecret": "legal is bombastic!",
+  "mongoUri": "mongodb+srv://bear:Fhvfutljy123r45@cpm.fnbzk.azure.mongodb.net/cpm?retryWrites=true&w=majority",
+  "baseUrl": "http//localhost:5000"
+}
