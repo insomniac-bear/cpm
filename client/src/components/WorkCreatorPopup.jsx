@@ -10,8 +10,8 @@ export const WorkCreatorPopup = ({ id, popupClose, getWorks }) => {
     dateStart: undefined,
     dateEnd: undefined,
     unit: ``,
-    count: undefined,
-    pricePerOne: undefined,
+    count: ``,
+    pricePerOne: ``,
     projectId: id
   });
 
@@ -64,24 +64,24 @@ export const WorkCreatorPopup = ({ id, popupClose, getWorks }) => {
               <div className="input-field col s3">
                 <input
                   id="count"
-                  type="number"
+                  type="text"
                   name="count"
                   value={workForm.count}
                   onChange={changeHandler}
                 />
-                <label htmlFor="unit">Объем работ</label>
+                <label htmlFor="count">Объем работ</label>
               </div>
             </div>
             <div className="row">
               <div className="input-field col s3">
                 <input
                   id="pricePerOne"
-                  type="number"
+                  type="text"
                   name="pricePerOne"
                   value={workForm.pricePerOne}
                   onChange={changeHandler}
                 />
-                <label htmlFor="unit">Цена за ед.</label>
+                <label htmlFor="pricePerOne">Цена за ед.</label>
               </div>
             </div>
 

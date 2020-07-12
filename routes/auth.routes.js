@@ -10,8 +10,8 @@ const router = Router();
 router.post(
   '/register',
   [
-    check('login', 'Минимальгная длинна логина 1 символ').isLength({ min: 1 }),
-    check('password', 'Минимальная длинная пароля 6 символов').isLength({ min: 6 })
+    check('login', 'Минимальгная длинна логина 1 символ').not().trim().escape(),
+    check('password', 'Минимальная длинная пароля 6 символов').isLength({ min: 6 }).not().trim().escape()
   ],
   async (req, res) => {
     try {
@@ -47,12 +47,13 @@ router.post(
 // /api/auth/login
 router.post('/login',
   [
-    check('password', 'Введите пароль').exists()
+    check('login', 'Введите корректные данные').not().trim().escape(),
+    check('password', 'Введите пароль').exists().not().trim().escape()
   ],
   async (req, res) => {
     try {
       const errors = validationResult(req);
-      if (!errors.isEmpty) {
+      if (!errors.isEmpty()) {
         return res.status(400).json({
           errors: errors.array(),
           message: 'Некорректные данные при входе в систему'

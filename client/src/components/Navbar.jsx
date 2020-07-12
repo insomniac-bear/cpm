@@ -14,7 +14,7 @@ export const Navbar = () => {
   return <React.Fragment>
     <nav className="deep-purple lighteen-1">
       <div className="nav-wrapper">
-        <span className="brand-logo center">Управление проектами</span>
+        <span className="brand-logo center">Управление проектами v.1.0.1</span>
         <ul className="left hide-on-med-and-down">
           <li><NavLink to="/create">Создать проект</NavLink></li>
           <li><NavLink to="/projects">Проекты</NavLink></li>

@@ -1,10 +1,18 @@
 const { Router } = require('express');
+const { body } = require('express-validator');
 const Works = require('../models/Works.js');
 const auth = require('../middleware/auth.middleware.js');
 const router = Router();
 
 
-router.post('/create', auth, async (req, res) => {
+router.post('/create', [
+  body(`name`).not().trim(),
+  body(`dateStart`).not().trim(),
+  body(`dateEnd`).not().trim(),
+  body(`unit`).not().trim(),
+  body(`count`).not().trim(),
+  body(`pricePerOne`).not().trim(),
+], auth, async (req, res) => {
   try {
     const { name, dateStart, dateEnd, unit, count, pricePerOne, projectId } = req.body;
 

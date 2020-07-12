@@ -1,10 +1,16 @@
 const { Router } = require('express');
+const { body } = require('express-validator');
 const Project = require('../models/Project.js');
 const auth = require('../middleware/auth.middleware.js');
 const router = Router();
 
 
-router.post('/generate', auth, async (req, res) => {
+router.post('/generate', [
+  body(`name`).not().trim(),
+  body(`dateStart`).not().trim().escape(),
+  body(`dateEnd`).not().trim().escape(),
+  body(`location`).not().trim().escape(),
+], auth, async (req, res) => {
   try {
     const { name, dateStart, dateEnd, location } = req.body;
 
